@@ -11,8 +11,8 @@ public class Camera2DFollow : MonoBehaviour
     public float lookAheadMoveThreshold = 0.1f;
     public float yPosRestriction = -1;
 
-    float minX =-10000;
-    float minY =-10000;
+    float minX =-10f;
+    float minY =-10f;
     float maxX =150000000;
     float maxY =150000000;
 
@@ -63,7 +63,7 @@ public class Camera2DFollow : MonoBehaviour
         if (newPos.x > minX && newPos.x < maxX && newPos.y > minY && newPos.y < maxY)
             transform.position = newPos;
 
-        transform.position = newPos;
+        //transform.position = newPos;
 
         lastTargetPosition = target.position;
     }
