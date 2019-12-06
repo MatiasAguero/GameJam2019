@@ -35,14 +35,14 @@ public class Tiling : MonoBehaviour
     void Update()
     {
         //Si todavía necesita agrandarse, sino no hace nada
-        if (hasALeftBuddy == false || hasARightBuddy == false)
+        if (/*hasALeftBuddy == false ||*/ hasARightBuddy == false)
         {
             //calcular la extensión desde el centro de la cámara hacia el marco exterior
             float camHorizontalExtend = cam.orthographicSize * Screen.width / Screen.height;
 
             //calcular la camara que avanza y la que se retrasa (visualmente hablando)
             float edgeVisiblePositionRight = (myTransform.position.x + spriteWidth / 2) - camHorizontalExtend;
-            float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth / 2 + camHorizontalExtend);
+            /*float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth / 2 + camHorizontalExtend);*/
 
             //si el margen de la cámara alcanza suelo creamos una porción de suelo
             if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false)
@@ -50,11 +50,11 @@ public class Tiling : MonoBehaviour
                 MakeNewBuddy(1);
                 hasARightBuddy = true;
             }
-            else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false)
+            /*else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false)
             {
                 MakeNewBuddy(-1);
                 hasALeftBuddy = true;
-            }
+            }*/
         }
     }
     //PARA CALCULAR LA NUEVA PORCION DE SUELO
@@ -72,9 +72,9 @@ public class Tiling : MonoBehaviour
         {
             newBuddy.GetComponent<Tiling>().hasALeftBuddy = true;
         }
-        else
+        /*else
         {
             newBuddy.GetComponent<Tiling>().hasARightBuddy = true;
-        }
+        }*/
     }
 }
